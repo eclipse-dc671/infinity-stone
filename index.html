@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#03040b">
+<title>Infinity Stone SMP</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:#02030a;
+  color:#fff;
+  font-family:'Poppins', sans-serif;
+  overflow-x:hidden;
+}
+
+/* मुख्य कंटेनर जिसमें तुम्हारा बैकग्राउंड बैनर है */
+.main-stage{
+  position:relative;
+  width:100%;
+  max-width:1536px;
+  margin:0 auto;
+  background:url('infinity-stone-bg.png') no-repeat top center;
+  background-size:100% auto;
+  background-color:#02030a;
+  min-height:100vh;
+}
+
+/* 1. NAVBAR */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 40px;
+  background:linear-gradient(to bottom, rgba(2,3,10,0.85), transparent);
+}
+.brand{
+  font-family:'Cinzel', serif;
+  font-size:22px;
+  font-weight:700;
+  letter-spacing:2px;
+  color:#e0e7ff;
+  text-shadow:0 0 10px rgba(168,85,247,0.5);
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+.nav-links a{
+  color:#cbd5e1;
+  text-decoration:none;
+  font-size:13px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  transition:0.3s;
+}
+.nav-links a:hover{color:#fff;text-shadow:0 0 8px #a855f7}
+.nav-discord-btn{
+  border:1px solid rgba(255,255,255,0.25);
+  padding:6px 18px;
+  border-radius:6px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(5px);
+}
+.nav-discord-btn:hover{
+  background:#5865F2;
+  border-color:#5865F2;
+  box-shadow:0 0 15px rgba(88,101,242,0.6);
+}
+
+/* 2. HERO SECTION */
+.hero{
+  text-align:center;
+  padding:80px 20px 140px;
+}
+.hero-tagline{
+  font-size:13px;
+  letter-spacing:4px;
+  color:#a855f7;
+  text-transform:uppercase;
+  font-weight:600;
+  margin-bottom:10px;
+}
+.hero-title{
+  font-family:'Cinzel', serif;
+  font-size:clamp(40px, 6vw, 75px);
+  font-weight:800;
+  line-height:1.1;
+  text-shadow:0 0 25px rgba(168,85,247,0.6);
+  margin-bottom:15px;
+}
+.hero-desc{
+  font-size:clamp(12px, 1.5vw, 15px);
+  color:#94a3b8;
+  max-width:550px;
+  margin:0 auto 30px;
+  line-height:1.6;
+}
+.hero-btns{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+}
+.btn{
+  padding:12px 28px;
+  border-radius:6px;
+  font-size:13px;
+  font-weight:600;
+  text-decoration:none;
+  letter-spacing:1px;
+  cursor:pointer;
+  transition:all 0.3s;
+  display:inline-block;
+}
+.btn-primary{
+  background:#fff;
+  color:#000;
+  border:none;
+}
+.btn-primary:hover{
+  box-shadow:0 0 20px #fff;
+  transform:scale(1.03);
+}
+.btn-outline{
+  border:1px solid rgba(255,255,255,0.3);
+  color:#fff;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(6px);
+}
+.btn-outline:hover{
+  border-color:#a855f7;
+  box-shadow:0 0 15px rgba(168,85,247,0.4);
+}
+
+/* 3. SERVER IP BOX */
+.server-box-wrap{
+  text-align:center;
+  padding:60px 20px;
+}
+.section-subtitle{
+  font-size:11px;
+  letter-spacing:3px;
+  color:#a855f7;
+  text-transform:uppercase;
+  margin-bottom:5px;
+}
+.section-title{
+  font-family:'Cinzel', serif;
+  font-size:clamp(24px, 3.5vw, 36px);
+  margin-bottom:25px;
+}
+.ip-glass-box{
+  max-width:480px;
+  margin:0 auto;
+  background:rgba(10, 14, 28, 0.65);
+  border:1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter:blur(12px);
+  border-radius:12px;
+  padding:25px 30px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.6);
+}
+.ip-details{
+  display:flex;
+  justify-content:space-around;
+  margin-bottom:20px;
+}
+.ip-col span{
+  display:block;
+  font-size:11px;
+  color:#94a3b8;
+  letter-spacing:1px;
+}
+.ip-col strong{
+  font-size:16px;
+  color:#fff;
+}
+.copy-btn{
+  background:rgba(255,255,255,0.1);
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.25);
+  padding:10px 25px;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:1px;
+  transition:0.3s;
+}
+.copy-btn:hover{
+  background:#fff;
+  color:#000;
+  box-shadow:0 0 15px #fff;
+}
+
+/* 4. CHOOSE YOUR POWER (STONES) */
+.stones-section{
+  padding:90px 20px;
+  text-align:center;
+}
+.stones-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
+  gap:15px;
+  max-width:1150px;
+  margin:35px auto 0;
+}
+.stone-card{
+  background:rgba(8, 12, 24, 0.65);
+  border-radius:10px;
+  padding:25px 15px;
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+  transition:0.3s;
+}
+.stone-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--color);
+  box-shadow:0 0 20px var(--color);
+}
+.stone-icon{
+  width:45px;
+  height:45px;
+  border-radius:8px;
+  margin:0 auto 15px;
+  background:var(--color);
+  box-shadow:0 0 20px var(--color);
+}
+.stone-card h4{
+  font-family:'Cinzel', serif;
+  font-size:14px;
+  margin-bottom:8px;
+}
+.stone-card p{
+  font-size:11px;
+  color:#94a3b8;
+  line-height:1.5;
+}
+
+/* 5. ABOUT SECTION */
+.about-section{
+  padding:60px 20px;
+  max-width:850px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+.about-card{
+  background:rgba(8, 12, 24, 0.7);
+  border:1px solid rgba(255,255,255,0.1);
+  backdrop-filter:blur(8px);
+  padding:25px;
+  border-radius:10px;
+}
+.about-card h3{
+  font-family:'Cinzel', serif;
+  font-size:17px;
+  margin-bottom:10px;
+}
+.about-card p{
+  font-size:12px;
+  color:#94a3b8;
+  line-height:1.6;
+}
+
+/* 6. BOTTOM COMMUNITY FOOTER */
+.community-section{
+  text-align:center;
+  padding:80px 20px 40px;
+}
+.community-section p{
+  color:#94a3b8;
+  font-size:13px;
+  margin-bottom:20px;
+}
+
+/* TOAST POPUP */
+.toast{
+  position:fixed;
+  z-index:999;
+  left:50%;
+  bottom:24px;
+  transform:translate(-50%,30px);
+  opacity:0;
+  pointer-events:none;
+  padding:12px 24px;
+  border:1px solid #a855f7;
+  background:rgba(5, 7, 18, 0.95);
+  box-shadow:0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(168, 85, 247, 0.4);
+  color:#fff;
+  border-radius:8px;
+  font-size:13px;
+  font-weight:600;
+  transition:.3s ease;
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:768px){
+  .navbar{padding:15px 20px}
+  .nav-links{display:none}
+  .about-section{grid-template-columns:1fr}
+  .stones-grid{grid-template-columns:repeat(2, 1fr)}
+}
+</style>
+</head>
+<body>
+
+<div class="main-stage">
+  <!-- 1. NAVBAR -->
+  <nav class="navbar">
+    <div class="brand">MINECRAFT SMP</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#server">Server</a>
+      <a href="#stones">Gems</a>
+      <a href="#about">About</a>
+      <a href="https://discord.gg/yAsXSvxdy" target="_blank" class="nav-discord-btn">Discord</a>
+    </div>
+  </nav>
+
+  <!-- 2. HERO -->
+  <div class="hero">
+    <div class="hero-tagline">Minecraft SMP</div>
+    <h1 class="hero-title">Infinity<br>Stone</h1>
+    <p class="hero-desc">A world where power defines the way you play. Choose your stone. Build your legacy.</p>
+    <div class="hero-btns">
+      <a href="#server" class="btn btn-primary" onclick="copyServer()">Join The SMP</a>
+      <a href="https://discord.gg/yAsXSvxdy" target="_blank" class="btn btn-outline">Join Discord</a>
+    </div>
+  </div>
+
+  <!-- 3. SERVER INFO (NETHER LAYER) -->
+  <div class="server-box-wrap" id="server">
+    <div class="section-subtitle">Server</div>
+    <h2 class="section-title">Enter The World</h2>
+    <div class="ip-glass-box">
+      <div class="ip-details">
+        <div class="ip-col">
+          <span>SERVER IP</span>
+          <strong>InfinityStoneSMP.aternos.me</strong>
+        </div>
+        <div class="ip-col">
+          <span>PORT</span>
+          <strong>54839</strong>
+        </div>
+      </div>
+      <button class="copy-btn" onclick="copyServer()">COPY IP & PORT</button>
+    </div>
+  </div>
+
+  <!-- 4. GEMS / STONES (CAVE LAYER) -->
+  <div class="stones-section" id="stones">
+    <div class="section-subtitle">The Stones</div>
+    <h2 class="section-title">Choose Your Power</h2>
+    <div class="stones-grid">
+      <div class="stone-card" style="--color:#ef4444">
+        <div class="stone-icon"></div>
+        <h4>Power Stone</h4>
+        <p>Power that changes the way you fight.</p>
+      </div>
+      <div class="stone-card" style="--color:#eab308">
+        <div class="stone-icon"></div>
+        <h4>Lightning Stone</h4>
+        <p>Speed, energy and the power of the sky.</p>
+      </div>
+      <div class="stone-card" style="--color:#38bdf8">
+        <div class="stone-icon"></div>
+        <h4>Ice Stone</h4>
+        <p>Control cold, survive the hardest battles.</p>
+      </div>
+      <div class="stone-card" style="--color:#0284c7">
+        <div class="stone-icon"></div>
+        <h4>Water Stone</h4>
+        <p>A power bound to the sea and its depths.</p>
+      </div>
+      <div class="stone-card" style="--color:#22c55e">
+        <div class="stone-icon"></div>
+        <h4>Nature Stone</h4>
+        <p>The force of life, forests and the wild.</p>
+      </div>
+      <div class="stone-card" style="--color:#a855f7">
+        <div class="stone-icon"></div>
+        <h4>Shadow Stone</h4>
+        <p>A mysterious power for those who master the dark.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. ABOUT (VILLAGE LAYER) -->
+  <div class="about-section" id="about">
+    <div class="about-card">
+      <h3>One World</h3>
+      <p>Infinity Stone SMP is a community-driven Minecraft world built around unique stone powers, survival, adventure and story.</p>
+    </div>
+    <div class="about-card">
+      <h3>Build Your Legacy</h3>
+      <p>Grow your power, make allies, face rivals and create your own story within the world.</p>
+    </div>
+  </div>
+
+  <!-- 6. FOOTER DISCORD -->
+  <div class="community-section">
+    <div class="section-subtitle">Join The Community</div>
+    <p>Stay connected, meet other players and be part of the Infinity Stone community.</p>
+    <a href="https://discord.gg/yAsXSvxdy" target="_blank" class="btn btn-outline" style="background:#5865F2;border-color:#5865F2;">Join Discord</a>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">Server IP Copied!</div>
+
+<script>
+async function copyServer(){
+  const ip = "InfinityStoneSMP.aternos.me:54839";
+  try{
+    await navigator.clipboard.writeText(ip);
+    showToast("IP Copied: " + ip);
+  }catch(e){
+    const box = document.createElement("textarea");
+    box.value = ip;
+    box.style.position = "fixed";
+    box.style.opacity = "0";
+    document.body.appendChild(box);
+    box.select();
+    document.execCommand("copy");
+    box.remove();
+    showToast("IP Copied: " + ip);
+  }
+}
+
+function showToast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("on");
+  clearTimeout(window.__t);
+  window.__t = setTimeout(()=>t.classList.remove("on"), 2200);
+}
+</script>
+
+</body>
+  </html>
+    
